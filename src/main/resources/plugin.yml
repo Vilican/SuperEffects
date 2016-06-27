@@ -1,0 +1,41 @@
+name: SuperEffects
+description: Special effects for admins and builders, which makes them faster and more powerful.
+main: com.vilican.supereffects.Main
+version: 1.0
+author: vilican
+commands:
+  sef:
+    description: Apply super effects to target or yourself.
+    usage: /sef [target]
+  rsef:
+    description: Remove super effects from target or yourself.
+    usage: /rsef [target]
+permissions:
+  sef.*:
+    description: Can apply and remove effects from anyone.
+    default: op
+    children:
+      sef.others.apply: true
+      sef.others.remove: true
+  sef.self.*:
+    description: Can apply and remove effects from self only.
+    default: op
+    children:
+      sef.self.apply: true
+      sef.self.remove: true
+  sef.self.apply:
+    description: Can apply effects to self only.
+    default: op
+  sef.self.remove:
+    description: Can remove effects from self only.
+    default: op 
+  sef.others.apply:
+    description: Can apply effects to anyone.
+    default: op
+    children:
+      sef.self.apply: true
+  sef.others.remove:
+    description: Can remove effects from anyone.
+    default: op
+    children:
+      sef.self.remove: true
