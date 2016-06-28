@@ -1,7 +1,7 @@
 name: SuperEffects
 description: Special effects for admins and builders, which makes them faster and more powerful.
 main: com.vilican.supereffects.Main
-version: 1.0
+version: 1.1
 author: vilican
 commands:
   sef:

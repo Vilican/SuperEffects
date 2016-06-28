@@ -57,7 +57,7 @@ public class Functions {
             Player playersender = (Player) sender;
             playersender.sendMessage(ChatColor.AQUA + "========================================");
             playersender.sendMessage(ChatColor.AQUA + "");
-            playersender.sendMessage(ChatColor.AQUA + "SuperEffects v1.0 by vilican");
+            playersender.sendMessage(ChatColor.AQUA + "SuperEffects v1.1 by vilican");
             playersender.sendMessage(ChatColor.AQUA + "");
             playersender.sendMessage(ChatColor.AQUA + "/sef - apply effects to yourself");
             playersender.sendMessage(ChatColor.AQUA + "/sef <target> - apply effects to target");
@@ -68,7 +68,7 @@ public class Functions {
         } else if (sender instanceof ConsoleCommandSender) {
             System.out.println("========================================");
             System.out.println("");
-            System.out.println("SuperEffects v1.0 by vilican");
+            System.out.println("SuperEffects v1.1 by vilican");
             System.out.println("");
             System.out.println("/sef - apply effects to yourself");
             System.out.println("/sef <target> - apply effects to target");
