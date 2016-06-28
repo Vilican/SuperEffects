@@ -1,7 +1,7 @@
 name: SuperEffects
 description: Special effects for admins and builders, which makes them faster and more powerful.
 main: com.vilican.supereffects.Main
-version: 1.1
+version: 1.2
 author: vilican
 commands:
   sef:
@@ -10,6 +10,12 @@ commands:
   rsef:
     description: Remove super effects from target or yourself.
     usage: /rsef [target]
+  hide:
+    description: Add invisibility to target or yourself.
+    usage: /hide [target]
+  show:
+    description: Remove invisibility from target or yourself.
+    usage: /show [target]
 permissions:
   sef.*:
     description: Can apply and remove effects from anyone.
@@ -17,18 +23,28 @@ permissions:
     children:
       sef.others.apply: true
       sef.others.remove: true
+      sef.others.hide: true
+      sef.others.show: true
   sef.self.*:
     description: Can apply and remove effects from self only.
     default: op
     children:
       sef.self.apply: true
       sef.self.remove: true
+      sef.self.hide: true
+      sef.self.show: true
   sef.self.apply:
     description: Can apply effects to self only.
     default: op
   sef.self.remove:
     description: Can remove effects from self only.
-    default: op 
+    default: op
+  sef.self.hide:
+    description: Can add invisibility to self only.
+    default: op
+  sef.self.show:
+    description: Can remove invisibility from self only.
+    default: op
   sef.others.apply:
     description: Can apply effects to anyone.
     default: op
@@ -39,3 +55,13 @@ permissions:
     default: op
     children:
       sef.self.remove: true
+  sef.others.hide:
+    description: Can add invisibility to anyone.
+    default: op
+    children:
+      sef.self.hide: true
+  sef.others.show:
+    description: Can remove invisibility from anyone.
+    default: op
+    children:
+      sef.self.show: true

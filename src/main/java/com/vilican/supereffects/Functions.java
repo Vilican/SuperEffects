@@ -35,7 +35,6 @@ public class Functions {
     }
 
     public static void addEffects(Player player) {
-        removeEffects(player);
         player.addPotionEffect(new PotionEffect(ABSORPTION, 1000000, 99, true, false), true);
         player.addPotionEffect(new PotionEffect(DAMAGE_RESISTANCE, 1000000, 99, true, false), true);
         player.addPotionEffect(new PotionEffect(FAST_DIGGING, 1000000, 5, true, false), true);
@@ -52,30 +51,35 @@ public class Functions {
         player.addPotionEffect(new PotionEffect(WATER_BREATHING, 1000000, 99, true, false), true);
     }
 
+    public static void hide(Player player) {
+        player.addPotionEffect(new PotionEffect(INVISIBILITY, 1000000, 99, true, false), true);
+    }
+
+    public static void show(Player player) {
+        player.addPotionEffect(new PotionEffect(INVISIBILITY, 1, 99, true, false), true);
+    }
+
     public static void displayHelp(Object sender) {
         if (sender instanceof Player) {
             Player playersender = (Player) sender;
-            playersender.sendMessage(ChatColor.AQUA + "========================================");
+            playersender.sendMessage(ChatColor.AQUA + "=======================================================");
             playersender.sendMessage(ChatColor.AQUA + "");
-            playersender.sendMessage(ChatColor.AQUA + "SuperEffects v1.1 by vilican");
+            playersender.sendMessage(ChatColor.AQUA + "SuperEffects v1.2 by vilican");
             playersender.sendMessage(ChatColor.AQUA + "");
-            playersender.sendMessage(ChatColor.AQUA + "/sef - apply effects to yourself");
-            playersender.sendMessage(ChatColor.AQUA + "/sef <target> - apply effects to target");
-            playersender.sendMessage(ChatColor.AQUA + "/rsef - remove effects from yourself");
-            playersender.sendMessage(ChatColor.AQUA + "/rsef <target> - remove effects from target");
+            playersender.sendMessage(ChatColor.AQUA + "/sef [target] - apply effects to target or yourself");
+            playersender.sendMessage(ChatColor.AQUA + "/rsef [target] - remove all effects from target or yourself");
+            playersender.sendMessage(ChatColor.AQUA + "/hide [target] - grant invisibility to target or you");
+            playersender.sendMessage(ChatColor.AQUA + "/show [target] - remove invisibility from target or you");
             playersender.sendMessage(ChatColor.AQUA + "");
-            playersender.sendMessage(ChatColor.AQUA + "========================================");
+            playersender.sendMessage(ChatColor.AQUA + "=======================================================");
         } else if (sender instanceof ConsoleCommandSender) {
-            System.out.println("========================================");
-            System.out.println("");
-            System.out.println("SuperEffects v1.1 by vilican");
-            System.out.println("");
-            System.out.println("/sef - apply effects to yourself");
-            System.out.println("/sef <target> - apply effects to target");
-            System.out.println("/rsef - remove effects from yourself");
-            System.out.println("/rsef <target> - remove effects from target");
-            System.out.println("");
-            System.out.println("========================================");
+            System.out.println("=======================================================");
+            System.out.println("SuperEffects v1.2 by vilican");
+            System.out.println("/sef [target] - apply effects to target or yourself");
+            System.out.println("/rsef [target] - remove all effects from target or yourself");
+            System.out.println("/hide [target] - grant invisibility to target or you");
+            System.out.println("/show [target] - remove invisibility from target or you");
+            System.out.println("=======================================================");
         }
     }
 }

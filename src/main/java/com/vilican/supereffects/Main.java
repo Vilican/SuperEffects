@@ -26,10 +26,12 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        System.out.println("SuperEffects v1.1 by vilican");
+        System.out.println("SuperEffects v1.2 by vilican");
         System.out.println("Plugin enabled and running");
         this.getCommand("sef").setExecutor(new SfCommand());
         this.getCommand("rsef").setExecutor(new RSfCommand());
+        this.getCommand("hide").setExecutor(new HideCommand());
+        this.getCommand("show").setExecutor(new ShowCommand());
     }
 
     @Override
