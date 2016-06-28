@@ -31,40 +31,38 @@ public class RSfCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        Player playersender = (Player) sender;
+
         if (args.length > 0) {
 
             if (args[0].equalsIgnoreCase("help")) {
-                com.vilican.supereffects.Functions.displayHelp(playersender);
+                com.vilican.supereffects.Functions.displayHelp(sender);
                 return true;
             } else if (sender.hasPermission("sef.others.remove")) {
                 Player player = Bukkit.getPlayer(args[0]);
                 if (player != null) {
                     com.vilican.supereffects.Functions.removeEffects(player);
-                    playersender.sendMessage(ChatColor.GREEN + "Effects removed");
-                    return true;
-                } else if (sender instanceof Player) {
-                    playersender.sendMessage(ChatColor.RED + "Player is not online!");
+                    sender.sendMessage(ChatColor.GREEN + "Effects removed");
                     return true;
                 } else {
-                    System.out.println("Player is not online!");
+                    sender.sendMessage(ChatColor.RED + "Player is not online!");
                     return true;
                 }
             } else {
-                playersender.sendMessage(ChatColor.RED + "Access denied!");
+                sender.sendMessage(ChatColor.RED + "Access denied!");
                 return true;
             }
         } else if (sender instanceof Player) {
             if (sender.hasPermission("sef.self.remove")) {
+                Player playersender = (Player) sender;
                 com.vilican.supereffects.Functions.removeEffects(playersender);
-                playersender.sendMessage(ChatColor.GREEN + "Effects removed");
+                sender.sendMessage(ChatColor.GREEN + "Effects removed");
                 return true;
             } else {
-                playersender.sendMessage(ChatColor.RED + "Access denied!");
+                sender.sendMessage(ChatColor.RED + "Access denied!");
                 return true;
             }
         } else {
-            playersender.sendMessage(ChatColor.RED + "You are not a player!");
+            sender.sendMessage(ChatColor.RED + "You are not a player!");
             return true;
         }
     }

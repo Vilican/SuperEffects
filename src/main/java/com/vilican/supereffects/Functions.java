@@ -17,6 +17,7 @@
 package com.vilican.supereffects;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import static org.bukkit.potion.PotionEffectType.*;
@@ -51,16 +52,30 @@ public class Functions {
         player.addPotionEffect(new PotionEffect(WATER_BREATHING, 1000000, 99, true, false), true);
     }
 
-    public static void displayHelp(Player playersender) {
-        playersender.sendMessage(ChatColor.AQUA + "========================================");
-        playersender.sendMessage(ChatColor.AQUA + "");
-        playersender.sendMessage(ChatColor.AQUA + "SuperEffects v1.0 by vilican");
-        playersender.sendMessage(ChatColor.AQUA + "");
-        playersender.sendMessage(ChatColor.AQUA + "/sef - apply effects to yourself");
-        playersender.sendMessage(ChatColor.AQUA + "/sef <target> - apply effects to target");
-        playersender.sendMessage(ChatColor.AQUA + "/rsef - remove effects from yourself");
-        playersender.sendMessage(ChatColor.AQUA + "/rsef <target> - remove effects from target");
-        playersender.sendMessage(ChatColor.AQUA + "");
-        playersender.sendMessage(ChatColor.AQUA + "========================================");
+    public static void displayHelp(Object sender) {
+        if (sender instanceof Player) {
+            Player playersender = (Player) sender;
+            playersender.sendMessage(ChatColor.AQUA + "========================================");
+            playersender.sendMessage(ChatColor.AQUA + "");
+            playersender.sendMessage(ChatColor.AQUA + "SuperEffects v1.0 by vilican");
+            playersender.sendMessage(ChatColor.AQUA + "");
+            playersender.sendMessage(ChatColor.AQUA + "/sef - apply effects to yourself");
+            playersender.sendMessage(ChatColor.AQUA + "/sef <target> - apply effects to target");
+            playersender.sendMessage(ChatColor.AQUA + "/rsef - remove effects from yourself");
+            playersender.sendMessage(ChatColor.AQUA + "/rsef <target> - remove effects from target");
+            playersender.sendMessage(ChatColor.AQUA + "");
+            playersender.sendMessage(ChatColor.AQUA + "========================================");
+        } else if (sender instanceof ConsoleCommandSender) {
+            System.out.println("========================================");
+            System.out.println("");
+            System.out.println("SuperEffects v1.0 by vilican");
+            System.out.println("");
+            System.out.println("/sef - apply effects to yourself");
+            System.out.println("/sef <target> - apply effects to target");
+            System.out.println("/rsef - remove effects from yourself");
+            System.out.println("/rsef <target> - remove effects from target");
+            System.out.println("");
+            System.out.println("========================================");
+        }
     }
 }
